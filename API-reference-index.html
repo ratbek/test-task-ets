@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Api Reference index</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Api Reference index</h1>
+
+<div class="api-reference-list">
+    <h2>Authentication</h2>
+    <ul>
+        <li>
+            <a href="#register">POST api/auth/register</a>
+        </li>
+        <li>
+            <a href="#login">POST api/auth/login</a>
+        </li>
+    </ul>
+
+    <h2>Users</h2>
+    <ul>
+        <li>
+            <a href="#users-list">GET api/users</a>
+        </li>
+        <li>
+            <a href="#users-show">GET api/users/{user_id}</a>
+        </li>
+        <li>
+            <a href="#users-update">PUT api/users/{user_id}</a>
+        </li>
+        <li>
+            <a href="#users-delete">DELETE api/users/{user_id}</a>
+        </li>
+        <li>
+            <a href="#users-add-user-to-company">POST api/users/add-user-to-company</a>
+        </li>
+        <li>
+            <a href="#users-update-user-company">POST api/users/update-user-company/{user_id}</a>
+        </li>
+    </ul>
+
+    <h2>Companies</h2>
+    <ul>
+        <li>
+            <a href="#companies-list">GET api/companies</a>
+        </li>
+        <li>
+            <a href="#companies-show">GET api/companies/{company_id}</a>
+        </li>
+        <li>
+            <a href="#companies-create">POST api/companies</a>
+        </li>
+        <li>
+            <a href="#companies-update">PUT api/companies/{company_id}</a>
+        </li>
+        <li>
+            <a href="#companies-delete">DELETE api/companies/{company_id}</a>
+        </li>
+    </ul>
+</div>
+
+<div class="content">
+    <h2>Authentication</h2>
+
+    <div>
+        <h4 id="register">POST api/auth/register</h4>
+        <p>Description: Register new user</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Content-Type | application/json</li>
+            <li>X-Requested-With | XMLHttpRequest</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "username":"Tester",
+            "email": "tester@mail.com",
+            "password":"secret",
+            "password_confirmation":"secret"
+            }
+        </div>
+    </div>
+
+    <div>
+        <h4 id="login">POST api/auth/login</h4>
+        <p>Description: Authorization to get access</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Content-Type | application/json</li>
+            <li>X-Requested-With | XMLHttpRequest</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "email":"admin@mail.com",
+            "password":"admin",
+            "remember_me":true
+            }
+        </div>
+        <p>Response: access_token, token_type, expires_at</p>
+    </div>
+
+    <h2>Users</h2>
+
+    <div>
+        <h4 id="users-list">GET api/users</h4>
+        <p>Description: Returns list of users</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+    </div>
+    <div>
+        <h4 id="users-show">GET api/users/{user_id}</h4>
+        <p>Description: Returns single user</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+    </div>
+    <div>
+        <h4 id="users-update">PUT api/users/{user_id}</h4>
+        <p>Description: Update a user</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "username": "tester",
+            "first_name": "Tester",
+            "last_name": "Testerson",
+            "email":"tester@mail.com",
+            "password":"secret",
+            "password_confirmation":"secret"
+            }
+        </div>
+    </div>
+    <div>
+        <h4 id="users-delete">DELETE api/users/{user_id}</h4>
+        <p>Description: Delete user</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+    </div>
+    <div>
+        <h4 id="users-add-user-to-company">POST api/users/add-user-to-company</h4>
+        <p>Description: Adds user to company</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "user_id": 2,
+            "company_id": 3
+            }
+        </div>
+    </div>
+    <div>
+        <h4 id="users-update-user-company">PUT api/users/update-user-company/{id}</h4>
+        <p>Description: Updates user in company</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "user_id": 2,
+            "company_id": 3
+            }
+        </div>
+    </div>
+
+    <h2>Companies</h2>
+
+    <div>
+        <h4 id="companies-list">GET api/companies</h4>
+        <p>Description: Returns list of companies</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+    </div>
+    <div>
+        <h4 id="companies-show">GET api/companies/{company_id}</h4>
+        <p>Description: Returns single company</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+    </div>
+    <div>
+        <h4 id="companies-create">POST api/companies/{company_id}</h4>
+        <p>Description: Create a new company</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "name": "Google",
+            }
+        </div>
+    </div>
+    <div>
+        <h4 id="companies-update">PUT api/companies/{company_id}</h4>
+        <p>Description: Update single company</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+
+        <p>Example of Body in JSON for request:</p>
+        <div>
+            {
+            "name": "Google",
+            }
+        </div>
+    </div>
+    <div>
+        <h4 id="companies-delete">DELETE api/companies/{company_id}</h4>
+        <p>Description: Delete single company</p>
+        <p>Headers:</p>
+        <ul>
+            <li>Authorization | Bearer $Access_Token</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

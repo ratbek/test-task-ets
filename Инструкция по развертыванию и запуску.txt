@@ -1,0 +1,9 @@
+Инструкция по развертыванию и запуску
+
+Шаг 1. Запустить команду в командной строке 
+		php artisan migrate
+Шаг 2. (Опционально). Если нужны какие-то данные в базе, то можно заполнить базу данными с помощью Seeder`ов.
+		Для это надо выполнить следующие команду последовательно:
+		php artisan db:seed --class=CompaniesTableSeeder
+		php artisan db:seed --class=UsersTableSeeder
+		php artisan db:seed --class=CompanyUserTableSeeder
