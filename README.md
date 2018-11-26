@@ -1,2 +1,2 @@
 # test-task-ets
-Eest task for ets
+Test task for ets
